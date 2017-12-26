@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace Rmi.University.Questioning.Data.Models
 {
@@ -14,7 +12,7 @@ namespace Rmi.University.Questioning.Data.Models
 			public string LastName { get; set; }
 			public string FathersName { get; set; }
 			public string Degree { get; set; }
-			public short State { get; set; }
+			public LecturerState State { get; set; }
 
 			public Guid DepartmentId { get; set; }
 			[ForeignKey("DepartmentId")]
