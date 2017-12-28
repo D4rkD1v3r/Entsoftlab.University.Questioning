@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Rmi.University.Questioning.Data.Models;
 
 namespace Rmi.University.Questioning.Data

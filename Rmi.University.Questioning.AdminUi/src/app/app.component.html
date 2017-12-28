@@ -1,0 +1,31 @@
+<mat-tab-group>
+  <mat-tab label="Факультеты">
+    <dx-data-grid id="gridFaculty"
+                  [dataSource]="items"
+                  [showRowLines]="false"
+                  [showBorders]="false">
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+      <dxo-header-filter [visible]="true"></dxo-header-filter>
+      <dxo-search-panel [visible]="true"
+                        [width]="440"
+                        placeholder="Поиск..."></dxo-search-panel>
+      <dxi-column dataField="companyName" caption="Наименование" dataType="string">
+        <dxo-header-filter [allowSearch]="true"></dxo-header-filter>
+      </dxi-column>
+      <dxi-column caption="Краткое наиманование"></dxi-column>
+      <dxi-column caption="Фамилия И.О. декана"></dxi-column>
+    </dx-data-grid>
+  </mat-tab>
+  <mat-tab label="Группы">Content 2</mat-tab>
+  <mat-tab label="Кафедры">
+    <dx-data-grid id="gridDepartment"
+                  [dataSource]="items"
+                  [showRowLines]="true"
+                  [showBorders]="true">
+      <dxi-column dataField="companyName" caption="Наименование"></dxi-column>
+      <dxi-column caption="Краткое наиманование"></dxi-column>
+      <dxi-column caption="Фамилия И.О. заведующего"></dxi-column>
+    </dx-data-grid>
+  </mat-tab>
+  <mat-tab label="Преподаватели">Content 2</mat-tab>
+</mat-tab-group>

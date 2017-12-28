@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +22,7 @@ namespace Rmi.University.Questioning.AdminUi
 		{
 			var connectionString = Configuration.GetConnectionString("QuestioningContext");
 			services.AddEntityFrameworkNpgsql().AddDbContext<QuestioningContext>(options => options.UseNpgsql(connectionString));
-			services.AddMvc();
+      services.AddMvc();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,8 +32,12 @@ namespace Rmi.University.Questioning.AdminUi
 			{
 				app.UseDeveloperExceptionPage();
 			}
-
-			app.UseMvc();
-		}
+      app.UseMvc();
+		  app.UseDefaultFiles(new DefaultFilesOptions {
+		    DefaultFileNames = new
+		      List<string> { "index.html" }
+		  });
+		  app.UseStaticFiles();
+    }
 	}
 }
