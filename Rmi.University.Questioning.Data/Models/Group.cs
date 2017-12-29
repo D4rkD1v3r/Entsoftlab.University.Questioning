@@ -13,7 +13,7 @@ namespace Rmi.University.Questioning.Data.Models
 		public uint FinishYear { get; set; }
 		public bool IsActive { get; set; }
 		public TeachType TeachType { get; set; }
-		public ushort Course { get; set; }
+		public short Course { get; set; }
 
 
 		public Guid FacultyId { get; set; }

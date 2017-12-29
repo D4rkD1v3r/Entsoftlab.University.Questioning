@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,8 @@ namespace Rmi.University.Questioning.AdminUi
 		public void ConfigureServices(IServiceCollection services)
 		{
 			var connectionString = Configuration.GetConnectionString("QuestioningContext");
-			services.AddEntityFrameworkNpgsql().AddDbContext<QuestioningContext>(options => options.UseNpgsql(connectionString));
+		  services.AddAutoMapper();
+		  services.AddEntityFrameworkNpgsql().AddDbContext<QuestioningContext>(options => options.UseNpgsql(connectionString));
       services.AddMvc();
 		}
 

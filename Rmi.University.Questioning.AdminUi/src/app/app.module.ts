@@ -11,12 +11,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 
 
 import { AppService } from './app.service'
+import { FacultyService } from "./faculties/faculty.service"
 import { AppComponent } from './app.component';
+import { FacultiesComponent } from './faculties/faculties.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FacultiesComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { AppComponent } from './app.component';
     DxSelectBoxModule,
     MatTabsModule
   ],
-  providers: [AppService],
+  providers: [AppService, FacultyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

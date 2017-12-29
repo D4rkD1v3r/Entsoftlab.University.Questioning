@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using Rmi.University.Questioning.Data;
+using Rmi.University.Questioning.Data.Models;
 using System;
 
 namespace Rmi.University.Questioning.Data.Migrations
@@ -61,13 +62,13 @@ namespace Rmi.University.Questioning.Data.Migrations
 
                     b.Property<Guid>("FacultyId");
 
-                    b.Property<int>("FinishYear");
+                    b.Property<uint>("FinishYear");
 
                     b.Property<bool>("IsActive");
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("StartYear");
+                    b.Property<uint>("StartYear");
 
                     b.Property<short>("TeachType");
 
