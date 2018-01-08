@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Редактирование факультета</h2>
+<mat-dialog-content>
+  <div class="container">
+    <mat-form-field>
+      <input matInput placeholder="Полное наименование факультета" [(ngModel)]="currentItem.fullName">
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="currentItem.fullName=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Краткое наименование факультета" [(ngModel)]="currentItem.shortName">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Фамилия И.О. декана" [(ngModel)]="currentItem.deanFullName">
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">Отмена</button>
+  <button mat-button [mat-dialog-close]="currentItem" (click)="getPositiveResult()">Сохранить</button>
+</mat-dialog-actions>
