@@ -1,33 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Rx';
 import { FacultyModel } from "../models/facultyModel";
 
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class FacultyService {
+  private baseAddress: string;
   constructor(private http: HttpClient) {
-
+    this.baseAddress = "api/faculty";
   }
 
   public getFaculties() {
-    let apiUrl = 'api/faculty';
-    return this.http.get(apiUrl);
+    return this.http.get(this.baseAddress);
   }
 
   public createFaculty(faculty: FacultyModel) {
-    let apiUrl = 'api/faculty';
-    return this.http.post(apiUrl, faculty);
+    return this.http.post(this.baseAddress, faculty);
   }
 
   public editFaculty(faculty: FacultyModel) {
-    let apiUrl = 'api/faculty';
-    return this.http.put(apiUrl, faculty);
+    return this.http.put(this.baseAddress, faculty);
   }
 
   public removeFaculty(facultyId: string) {
-    let apiUrl = 'api/faculty/' + facultyId;
+    let apiUrl = this.baseAddress+"/" + facultyId;
     return this.http.delete(apiUrl).subscribe();
   }
 }

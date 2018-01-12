@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppService } from './app.service'
 import { FacultyService } from "./faculties/faculty.service"
+import { DepartmentService } from "./departments/department.service"
 import { AppComponent } from './app.component';
 import { FacultiesComponent } from './faculties/faculties.component';
 import { FacultyEditComponent } from './faculties/faculty-edit.component';
@@ -52,7 +53,7 @@ import { DepartmentsComponent } from './departments/departments.component';
     FacultyEditComponent,
     ConfirmDialogComponent
   ],
-  providers: [AppService, FacultyService],
+  providers: [AppService, FacultyService, DepartmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
