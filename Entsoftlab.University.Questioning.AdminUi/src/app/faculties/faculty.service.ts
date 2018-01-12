@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Observable} from 'rxjs/Rx';
-import {FacultyModel} from "../models/facultyModel";
+import { Observable } from 'rxjs/Rx';
+import { FacultyModel } from "../models/facultyModel";
 
 import 'rxjs/add/operator/map';
 
@@ -11,13 +11,23 @@ export class FacultyService {
 
   }
 
-  getFaculties() {
-    let apiUrl = 'api/Faculty';
+  public getFaculties() {
+    let apiUrl = 'api/faculty';
     return this.http.get(apiUrl);
   }
 
-  createFaculty(faculty: FacultyModel) {
-    let apiUrl = 'http://localhost:5000/api/faculty';
+  public createFaculty(faculty: FacultyModel) {
+    let apiUrl = 'api/faculty';
     return this.http.post(apiUrl, faculty);
+  }
+
+  public editFaculty(faculty: FacultyModel) {
+    let apiUrl = 'api/faculty';
+    return this.http.put(apiUrl, faculty);
+  }
+
+  public removeFaculty(facultyId: string) {
+    let apiUrl = 'api/faculty/' + facultyId;
+    return this.http.delete(apiUrl).subscribe();
   }
 }

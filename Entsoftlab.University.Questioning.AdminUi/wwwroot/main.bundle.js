@@ -104,12 +104,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__faculties_faculties_component__ = __webpack_require__("../../../../../src/app/faculties/faculties.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__faculties_faculty_edit_component__ = __webpack_require__("../../../../../src/app/faculties/faculty-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -138,7 +140,8 @@ var AppModule = (function () {
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_17__app_component__["a" /* AppComponent */],
                 __WEBPACK_IMPORTED_MODULE_18__faculties_faculties_component__["a" /* FacultiesComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__faculties_faculty_edit_component__["a" /* FacultyEditComponent */]
+                __WEBPACK_IMPORTED_MODULE_19__faculties_faculty_edit_component__["a" /* FacultyEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -158,7 +161,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_14__angular_material_dialog__["c" /* MatDialogModule */]
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_19__faculties_faculty_edit_component__["a" /* FacultyEditComponent */]
+                __WEBPACK_IMPORTED_MODULE_19__faculties_faculty_edit_component__["a" /* FacultyEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_15__app_service__["a" /* AppService */], __WEBPACK_IMPORTED_MODULE_16__faculties_faculty_service__["a" /* FacultyService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_17__app_component__["a" /* AppComponent */]]
@@ -203,6 +207,75 @@ var AppService = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/confirm-dialog/confirm-dialog.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/confirm-dialog/confirm-dialog.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h2 mat-dialog-title>Подтверждение действия</h2>\r\n<mat-dialog-content>\r\n  <div class=\"container\">\r\n    <p>{{contentQuestion}}</p>\r\n  </div>\r\n</mat-dialog-content>\r\n<mat-dialog-actions>\r\n  <button mat-button [mat-dialog-close]=\"false\">Отмена</button>\r\n  <button mat-button [mat-dialog-close]=\"true\">Принять</button>\r\n</mat-dialog-actions>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/confirm-dialog/confirm-dialog.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfirmDialogComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var ConfirmDialogComponent = (function () {
+    function ConfirmDialogComponent(data) {
+        this.data = data;
+        this.contentQuestion = data;
+    }
+    ConfirmDialogComponent.prototype.ngOnInit = function () {
+    };
+    ConfirmDialogComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'app-confirm-dialog',
+            template: __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.css")]
+        }),
+        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [Object])
+    ], ConfirmDialogComponent);
+    return ConfirmDialogComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/faculties/faculties.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -224,7 +297,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/faculties/faculties.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"button-row\">\r\n  <button mat-icon-button  (click)=\"addNewFaculty()\" color=\"primary\">\r\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">add_circle</mat-icon>\r\n  </button>\r\n</div>\r\n\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Фильтр\">\r\n  </mat-form-field>\r\n</div>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"dataSource\" matSort>\r\n    <ng-container matColumnDef=\"fullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Полное наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.fullName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"shortName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Краткое наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.shortName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"deanFullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Фамилия И.О. декана</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.deanFullName}}</mat-cell>\r\n    </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </mat-row>\r\n  </mat-table>\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 20, 25]\"></mat-paginator>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"button-row\">\r\n  <button mat-icon-button  (click)=\"addNewFaculty()\" color=\"primary\">\r\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">add_circle</mat-icon>\r\n  </button>\r\n</div>\r\n\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Фильтр\">\r\n  </mat-form-field>\r\n</div>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"dataSource\" matSort>\r\n    <ng-container matColumnDef=\"fullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Полное наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.fullName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"shortName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Краткое наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.shortName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"deanFullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Фамилия И.О. декана</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.deanFullName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"actions\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n        <button mat-button color=\"primary\" (click)=\"editFaculty(row.id)\">Редактировать</button>\r\n        <button mat-button color=\"warn\" (click)=\"removeFaculty(row.id)\">Удалить</button>\r\n      </mat-cell>\r\n    </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </mat-row>\r\n  </mat-table>\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 20, 25]\"></mat-paginator>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -237,7 +310,8 @@ module.exports = "\r\n<div class=\"button-row\">\r\n  <button mat-icon-button  (
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__faculty_service__ = __webpack_require__("../../../../../src/app/faculties/faculty.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__faculty_edit_component__ = __webpack_require__("../../../../../src/app/faculties/faculty-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_facultyModel__ = __webpack_require__("../../../../../src/app/models/facultyModel.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_facultyModel__ = __webpack_require__("../../../../../src/app/models/facultyModel.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -253,11 +327,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var FacultiesComponent = (function () {
     function FacultiesComponent(facultyService, dialog) {
         this.facultyService = facultyService;
         this.dialog = dialog;
-        this.displayedColumns = ['fullName', 'shortName', 'deanFullName'];
+        this.displayedColumns = ['fullName', 'shortName', 'deanFullName', 'actions'];
         this.items = [];
     }
     FacultiesComponent.prototype.ngOnInit = function () {
@@ -282,22 +357,63 @@ var FacultiesComponent = (function () {
     FacultiesComponent.prototype.addNewFaculty = function () {
         var _this = this;
         var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__faculty_edit_component__["a" /* FacultyEditComponent */], {
-            data: new __WEBPACK_IMPORTED_MODULE_4__models_facultyModel__["a" /* FacultyModel */](),
+            data: new __WEBPACK_IMPORTED_MODULE_5__models_facultyModel__["a" /* FacultyModel */](),
             width: '800px'
         });
         dialogRef.afterClosed().subscribe(function (result) {
             if (typeof (result) != typeof (Boolean)) {
-                // for (let item of this.items)
-                // {
-                //   if (item.id==result.id)
-                //   {
-                //     item.deanFullName=result.deanFullName;
-                //     item.fullName=result.fullName;
-                //     item.shortName=result.shortName;
-                //   }
-                // }
                 _this.items.push(result);
                 _this.dataSource.data = _this.items;
+            }
+        });
+    };
+    FacultiesComponent.prototype.editFaculty = function (facultyId) {
+        var _this = this;
+        var selectedFaculty = {};
+        for (var _i = 0, _a = this.items; _i < _a.length; _i++) {
+            var item = _a[_i];
+            if (item.id === facultyId) {
+                selectedFaculty = item;
+            }
+        }
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__faculty_edit_component__["a" /* FacultyEditComponent */], {
+            data: Object.assign({}, selectedFaculty),
+            width: '800px'
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (typeof (result) != typeof (Boolean)) {
+                for (var _i = 0, _a = _this.items; _i < _a.length; _i++) {
+                    var item = _a[_i];
+                    if (item.id === result.id) {
+                        item.deanFullName = result.deanFullName;
+                        item.fullName = result.fullName;
+                        item.shortName = result.shortName;
+                    }
+                }
+                _this.dataSource.data = _this.items;
+            }
+        });
+    };
+    FacultiesComponent.prototype.removeFaculty = function (facultyId) {
+        var _this = this;
+        var selectedFaculty;
+        for (var _i = 0, _a = this.items; _i < _a.length; _i++) {
+            var item = _a[_i];
+            if (item.id === facultyId) {
+                selectedFaculty = item;
+            }
+        }
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */], {
+            data: "Вы действительно хотите удалить этот факультет: " + selectedFaculty.shortName,
+            width: '800px'
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (result === true) {
+                var itemIndex = _this.items.indexOf(selectedFaculty);
+                if (itemIndex !== -1) {
+                    _this.items.splice(itemIndex, 1);
+                    _this.dataSource.data = _this.items;
+                }
             }
         });
     };
@@ -345,7 +461,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/faculties/faculty-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 mat-dialog-title>Редактирование факультета</h2>\n<mat-dialog-content>\n  <div class=\"container\">\n    <mat-form-field>\n      <input matInput placeholder=\"Полное наименование факультета\" [(ngModel)]=\"currentItem.fullName\">\n      <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"currentItem.fullName=''\">\n        <mat-icon>close</mat-icon>\n      </button>\n    </mat-form-field>\n    <mat-form-field>\n      <input matInput placeholder=\"Краткое наименование факультета\" [(ngModel)]=\"currentItem.shortName\">\n    </mat-form-field>\n    <mat-form-field>\n      <input matInput placeholder=\"Фамилия И.О. декана\" [(ngModel)]=\"currentItem.deanFullName\">\n    </mat-form-field>\n  </div>\n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button [mat-dialog-close]=\"false\">Отмена</button>\n  <button mat-button [mat-dialog-close]=\"currentItem\" (click)=\"getPositiveResult()\">Сохранить</button>\n</mat-dialog-actions>\n"
+module.exports = "<h2 mat-dialog-title>Редактирование факультета</h2>\r\n<mat-dialog-content>\r\n  <div class=\"container\">\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"Полное наименование факультета\" [(ngModel)]=\"currentItem.fullName\">\r\n      <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"currentItem.fullName=''\">\r\n        <mat-icon>close</mat-icon>\r\n      </button>\r\n    </mat-form-field>\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"Краткое наименование факультета\" [(ngModel)]=\"currentItem.shortName\">\r\n    </mat-form-field>\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"Фамилия И.О. декана\" [(ngModel)]=\"currentItem.deanFullName\">\r\n    </mat-form-field>\r\n  </div>\r\n</mat-dialog-content>\r\n<mat-dialog-actions>\r\n  <button mat-button [mat-dialog-close]=\"false\">Отмена</button>\r\n  <button mat-button [mat-dialog-close]=\"currentItem\" (click)=\"getPositiveResult()\">Сохранить</button>\r\n</mat-dialog-actions>\r\n"
 
 /***/ }),
 
@@ -382,10 +498,14 @@ var FacultyEditComponent = (function () {
     };
     FacultyEditComponent.prototype.getPositiveResult = function () {
         var _this = this;
-        this.facultyService.createFaculty(this.currentItem).subscribe(function (res) {
-            console.log(res);
-            _this.currentItem.id = res;
-        });
+        if (this.currentItem.id == undefined) {
+            this.facultyService.createFaculty(this.currentItem).subscribe(function (res) {
+                _this.currentItem.id = res;
+            });
+        }
+        else {
+            this.facultyService.editFaculty(this.currentItem).subscribe();
+        }
     };
     FacultyEditComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
@@ -428,12 +548,20 @@ var FacultyService = (function () {
         this.http = http;
     }
     FacultyService.prototype.getFaculties = function () {
-        var apiUrl = 'api/Faculty';
+        var apiUrl = 'api/faculty';
         return this.http.get(apiUrl);
     };
     FacultyService.prototype.createFaculty = function (faculty) {
-        var apiUrl = 'http://localhost:5000/api/faculty';
+        var apiUrl = 'api/faculty';
         return this.http.post(apiUrl, faculty);
+    };
+    FacultyService.prototype.editFaculty = function (faculty) {
+        var apiUrl = 'api/faculty';
+        return this.http.put(apiUrl, faculty);
+    };
+    FacultyService.prototype.removeFaculty = function (facultyId) {
+        var apiUrl = 'api/faculty/' + facultyId;
+        return this.http.delete(apiUrl).subscribe();
     };
     FacultyService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Injectable */])(),

@@ -19,10 +19,12 @@ export class FacultyEditComponent implements OnInit {
   }
 
   public getPositiveResult() {
-    this.facultyService.createFaculty(this.currentItem).subscribe(res=>{
-      console.log(res);
-      this.currentItem.id=res as string;
-    });
-
+    if (this.currentItem.id == undefined) {
+      this.facultyService.createFaculty(this.currentItem).subscribe(res => {
+        this.currentItem.id = res as string;
+      });
+    } else {
+      this.facultyService.editFaculty(this.currentItem).subscribe();
+    }
   }
 }
