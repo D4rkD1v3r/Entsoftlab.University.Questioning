@@ -20,6 +20,7 @@ import { AppComponent } from './app.component';
 import { FacultiesComponent } from './faculties/faculties.component';
 import { FacultyEditComponent } from './faculties/faculty-edit.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { DepartmentsComponent } from './departments/departments.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     AppComponent,
     FacultiesComponent,
     FacultyEditComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    DepartmentsComponent
   ],
   imports: [
     BrowserModule,

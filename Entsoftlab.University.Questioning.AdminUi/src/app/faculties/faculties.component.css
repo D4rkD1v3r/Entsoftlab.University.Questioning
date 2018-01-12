@@ -16,5 +16,12 @@
 
 .mat-table {
   overflow: auto;
-  max-height: 500px;
+  max-height: 700px;
 }
+.mat-column-actions {
+  flex: 0 0 230px;
+}
+.mat-column-shortName {
+  flex: 0 0 230px;
+}
+

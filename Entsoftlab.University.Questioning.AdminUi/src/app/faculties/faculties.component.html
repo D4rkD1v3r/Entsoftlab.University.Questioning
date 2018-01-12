@@ -13,13 +13,13 @@
 
 <div class="example-container mat-elevation-z8">
   <mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="fullName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Полное наименование</mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.fullName}}</mat-cell>
-    </ng-container>
     <ng-container matColumnDef="shortName">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Краткое наименование</mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.shortName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="fullName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Полное наименование</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.fullName}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="deanFullName">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Фамилия И.О. декана</mat-header-cell>

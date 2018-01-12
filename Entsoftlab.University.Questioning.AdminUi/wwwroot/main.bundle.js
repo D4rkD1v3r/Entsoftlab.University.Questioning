@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"Факультеты\">\r\n    <app-faculties></app-faculties>\r\n  </mat-tab>\r\n  <mat-tab label=\"Группы\">Content 2</mat-tab>\r\n  <mat-tab label=\"Кафедры\">\r\n\r\n  </mat-tab>\r\n  <mat-tab label=\"Преподаватели\">Content 2</mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"Факультеты\">\r\n    <app-faculties></app-faculties>\r\n  </mat-tab>\r\n  <mat-tab label=\"Группы\"> </mat-tab>\r\n  <mat-tab label=\"Кафедры\"> </mat-tab>\r\n  <mat-tab label=\"Преподаватели\"> </mat-tab>\r\n  <mat-tab label=\"Преподаватели по группам\"> </mat-tab>\r\n  <mat-tab label=\"Общие вопросы\"> </mat-tab>\r\n  <mat-tab label=\"Вопросы о преподавателе\"> </mat-tab>\r\n</mat-tab-group>\r\n"
 
 /***/ }),
 
@@ -284,7 +284,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".example-container {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  min-width: 300px;\r\n}\r\n\r\n.example-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 500px;\r\n}\r\n", ""]);
+exports.push([module.i, ".example-container {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  min-width: 300px;\r\n}\r\n\r\n.example-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 700px;\r\n}\r\n.mat-column-actions {\r\n  -webkit-box-flex: 0;\r\n      -ms-flex: 0 0 230px;\r\n          flex: 0 0 230px;\r\n}\r\n.mat-column-shortName {\r\n  -webkit-box-flex: 0;\r\n      -ms-flex: 0 0 230px;\r\n          flex: 0 0 230px;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -297,7 +297,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/faculties/faculties.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"button-row\">\r\n  <button mat-icon-button  (click)=\"addNewFaculty()\" color=\"primary\">\r\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">add_circle</mat-icon>\r\n  </button>\r\n</div>\r\n\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Фильтр\">\r\n  </mat-form-field>\r\n</div>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"dataSource\" matSort>\r\n    <ng-container matColumnDef=\"fullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Полное наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.fullName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"shortName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Краткое наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.shortName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"deanFullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Фамилия И.О. декана</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.deanFullName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"actions\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n        <button mat-button color=\"primary\" (click)=\"editFaculty(row.id)\">Редактировать</button>\r\n        <button mat-button color=\"warn\" (click)=\"removeFaculty(row.id)\">Удалить</button>\r\n      </mat-cell>\r\n    </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </mat-row>\r\n  </mat-table>\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 20, 25]\"></mat-paginator>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"button-row\">\r\n  <button mat-icon-button  (click)=\"addNewFaculty()\" color=\"primary\">\r\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">add_circle</mat-icon>\r\n  </button>\r\n</div>\r\n\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Фильтр\">\r\n  </mat-form-field>\r\n</div>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"dataSource\" matSort>\r\n    <ng-container matColumnDef=\"shortName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Краткое наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.shortName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"fullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Полное наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.fullName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"deanFullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Фамилия И.О. декана</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.deanFullName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"actions\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n        <button mat-button color=\"primary\" (click)=\"editFaculty(row.id)\">Редактировать</button>\r\n        <button mat-button color=\"warn\" (click)=\"removeFaculty(row.id)\">Удалить</button>\r\n      </mat-cell>\r\n    </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </mat-row>\r\n  </mat-table>\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 20, 25]\"></mat-paginator>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -332,7 +332,7 @@ var FacultiesComponent = (function () {
     function FacultiesComponent(facultyService, dialog) {
         this.facultyService = facultyService;
         this.dialog = dialog;
-        this.displayedColumns = ['fullName', 'shortName', 'deanFullName', 'actions'];
+        this.displayedColumns = ['shortName', 'fullName', 'deanFullName', 'actions'];
         this.items = [];
     }
     FacultiesComponent.prototype.ngOnInit = function () {
@@ -350,8 +350,8 @@ var FacultiesComponent = (function () {
         this.populateItems();
     };
     FacultiesComponent.prototype.applyFilter = function (filterValue) {
-        filterValue = filterValue.trim(); // Remove whitespace
-        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        filterValue = filterValue.trim();
+        filterValue = filterValue.toLowerCase();
         this.dataSource.filter = filterValue;
     };
     FacultiesComponent.prototype.addNewFaculty = function () {
@@ -411,6 +411,7 @@ var FacultiesComponent = (function () {
             if (result === true) {
                 var itemIndex = _this.items.indexOf(selectedFaculty);
                 if (itemIndex !== -1) {
+                    _this.facultyService.removeFaculty(selectedFaculty.id);
                     _this.items.splice(itemIndex, 1);
                     _this.dataSource.data = _this.items;
                 }

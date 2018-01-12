@@ -14,7 +14,7 @@ import { FacultyModel } from '../models/facultyModel';
 })
 export class FacultiesComponent implements OnInit {
   dataSource: MatTableDataSource<FacultyModel>;
-  displayedColumns = ['fullName', 'shortName', 'deanFullName', 'actions'];
+  displayedColumns = ['shortName', 'fullName', 'deanFullName', 'actions'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -41,8 +41,8 @@ export class FacultiesComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    filterValue = filterValue.trim(); 
+    filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
   }
 
@@ -98,7 +98,7 @@ export class FacultiesComponent implements OnInit {
       if (result === true) {
         let itemIndex = this.items.indexOf(selectedFaculty);
         if (itemIndex !== -1) {
-
+          this.facultyService.removeFaculty(selectedFaculty.id);
           this.items.splice(itemIndex, 1);
           this.dataSource.data = this.items;
         }
