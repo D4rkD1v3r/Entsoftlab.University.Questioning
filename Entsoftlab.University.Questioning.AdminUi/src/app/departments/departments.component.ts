@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { DepartmentService } from "./department.service"
-//import { DepartmentEditComponent } from "./Department-edit.component";
+import { DepartmentEditComponent } from "./department-edit.component";
 import { ConfirmDialogComponent } from "../confirm-dialog/confirm-dialog.component";
 import { DepartmentModel } from "../models/departmentModel";
 
@@ -45,42 +45,42 @@ export class DepartmentsComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  //public addNewDepartment() {
-  //  let dialogRef = this.dialog.open(DepartmentEditComponent, {
-  //    data: new DepartmentModel(),
-  //    width: '800px'
-  //  });
-  //  dialogRef.afterClosed().subscribe(result => {
-  //    if (typeof (result) != typeof (Boolean)) {
-  //      this.items.push(result);
-  //      this.dataSource.data = this.items;
-  //    }
-  //  });
-  //}
-  //public editDepartment(DepartmentId: string) {
-  //  let selectedDepartment = {};
-  //  for (let item of this.items) {
-  //    if (item.id === DepartmentId) {
-  //      selectedDepartment = item;
-  //    }
-  //  }
-  //  let dialogRef = this.dialog.open(DepartmentEditComponent, {
-  //    data: Object.assign({}, selectedDepartment),
-  //    width: '800px'
-  //  });
-  //  dialogRef.afterClosed().subscribe(result => {
-  //    if (typeof (result) != typeof (Boolean)) {
-  //      for (let item of this.items) {
-  //        if (item.id === result.id) {
-  //          item.deanFullName = result.deanFullName;
-  //          item.fullName = result.fullName;
-  //          item.shortName = result.shortName;
-  //        }
-  //      }
-  //      this.dataSource.data = this.items;
-  //    }
-  //  });
-  //}
+  public addNewDepartment() {
+    let dialogRef = this.dialog.open(DepartmentEditComponent, {
+      data: new DepartmentModel(),
+      width: '800px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (typeof (result) != typeof (Boolean)) {
+        this.items.push(result);
+        this.dataSource.data = this.items;
+      }
+    });
+  }
+  public editDepartment(departmentId: string) {
+    let selectedDepartment = {};
+    for (let item of this.items) {
+      if (item.id === departmentId) {
+        selectedDepartment = item;
+      }
+    }
+    let dialogRef = this.dialog.open(DepartmentEditComponent, {
+      data: Object.assign({}, selectedDepartment),
+      width: '800px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (typeof (result) != typeof (Boolean)) {
+        for (let item of this.items) {
+          if (item.id === result.id) {
+            item.mainFullName = result.mainFullName;
+            item.fullName = result.fullName;
+            item.shortName = result.shortName;
+          }
+        }
+        this.dataSource.data = this.items;
+      }
+    });
+  }
 
   public removeDepartment(departmentId: string) {
     let selectedDepartment: DepartmentModel;

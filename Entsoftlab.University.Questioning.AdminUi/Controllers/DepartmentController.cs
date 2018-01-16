@@ -9,44 +9,44 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Entsoftlab.University.Questioning.AdminUi.Controllers {
   [Produces("application/json")]
-  [Route("api/faculty")]
-  public class FacultyController : Controller {
+  [Route("api/department")]
+  public class DepartmentController : Controller {
     private readonly QuestioningContext _context;
 
-    public FacultyController(QuestioningContext context) {
+    public DepartmentController(QuestioningContext context) {
       _context = context;
     }
 
     [HttpGet]
-    public IEnumerable<Faculty> Get() {
-      return _context.Faculties.Select(x => Mapper.Map<Faculty>(x));
+    public IEnumerable<Department> Get() {
+      return _context.Departments.Select(x => Mapper.Map<Department>(x));
     }
 
     [HttpGet("item/{id}")]
-    public Faculty Get(Guid id) {
-      return Mapper.Map<Faculty>(_context.Faculties.FirstOrDefault());
+    public Department Get(Guid id) {
+      return Mapper.Map<Department>(_context.Departments.FirstOrDefault());
     }
 
     [HttpPost]
-    public Guid Post([FromBody] Faculty model) {
-      var item = Mapper.Map<Data.Models.Faculty>(model);
+    public Guid Post([FromBody] Department model) {
+      var item = Mapper.Map<Data.Models.Department>(model);
       item.Id = Guid.NewGuid();
-      _context.Faculties.Add(item);
+      _context.Departments.Add(item);
       _context.SaveChanges();
       return item.Id;
     }
 
     [HttpPut()]
-    public void Put([FromBody] Faculty model) {
-      var item = Mapper.Map<Data.Models.Faculty>(model);
-      var ent = _context.Faculties.Attach(item);
+    public void Put([FromBody] Department model) {
+      var item = Mapper.Map<Data.Models.Department>(model);
+      var ent = _context.Departments.Attach(item);
       ent.State = EntityState.Modified;
       _context.SaveChanges();
     }
 
     [HttpDelete("{id}")]
     public void Delete(Guid id) {
-      _context.Faculties.Remove(_context.Faculties.First(x => x.Id == id));
+      _context.Departments.Remove(_context.Departments.First(x => x.Id == id));
       _context.SaveChanges();
     }
   }

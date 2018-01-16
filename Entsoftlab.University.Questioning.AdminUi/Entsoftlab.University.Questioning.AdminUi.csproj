@@ -26,7 +26,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Entsoftlab.University.Questioning.Data\Entsoftlab.University.Questioning.Data.csproj" />
   </ItemGroup>
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="ng build" />
-  </Target>
 </Project>

@@ -22,6 +22,7 @@ import { FacultiesComponent } from './faculties/faculties.component';
 import { FacultyEditComponent } from './faculties/faculty-edit.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DepartmentsComponent } from './departments/departments.component';
+import { DepartmentEditComponent } from './departments/department-edit.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { DepartmentsComponent } from './departments/departments.component';
     FacultiesComponent,
     FacultyEditComponent,
     ConfirmDialogComponent,
-    DepartmentsComponent
+    DepartmentsComponent,
+    DepartmentEditComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { DepartmentsComponent } from './departments/departments.component';
   ],
   entryComponents: [
     FacultyEditComponent,
+    DepartmentEditComponent,
     ConfirmDialogComponent
   ],
   providers: [AppService, FacultyService, DepartmentService],

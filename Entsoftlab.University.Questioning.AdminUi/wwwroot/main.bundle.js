@@ -107,12 +107,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__faculties_faculty_edit_component__ = __webpack_require__("../../../../../src/app/faculties/faculty-edit.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__departments_departments_component__ = __webpack_require__("../../../../../src/app/departments/departments.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__departments_department_edit_component__ = __webpack_require__("../../../../../src/app/departments/department-edit.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -146,7 +148,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_19__faculties_faculties_component__["a" /* FacultiesComponent */],
                 __WEBPACK_IMPORTED_MODULE_20__faculties_faculty_edit_component__["a" /* FacultyEditComponent */],
                 __WEBPACK_IMPORTED_MODULE_21__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__departments_departments_component__["a" /* DepartmentsComponent */]
+                __WEBPACK_IMPORTED_MODULE_22__departments_departments_component__["a" /* DepartmentsComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__departments_department_edit_component__["a" /* DepartmentEditComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -167,6 +170,7 @@ var AppModule = (function () {
             ],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_20__faculties_faculty_edit_component__["a" /* FacultyEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__departments_department_edit_component__["a" /* DepartmentEditComponent */],
                 __WEBPACK_IMPORTED_MODULE_21__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_15__app_service__["a" /* AppService */], __WEBPACK_IMPORTED_MODULE_16__faculties_faculty_service__["a" /* FacultyService */], __WEBPACK_IMPORTED_MODULE_17__departments_department_service__["a" /* DepartmentService */]],
@@ -281,6 +285,89 @@ var ConfirmDialogComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/departments/department-edit.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".container {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n}\r\n\r\n  .container > * {\r\n    width: 100%;\r\n  }\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/departments/department-edit.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h2 mat-dialog-title>Редактирование кафедры</h2>\n<mat-dialog-content>\n  <div class=\"container\">\n    <mat-form-field>\n      <input matInput placeholder=\"Полное наименование кафедры\" [(ngModel)]=\"currentItem.fullName\">\n      <button mat-button *ngIf=\"value\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"currentItem.fullName=''\">\n        <mat-icon>close</mat-icon>\n      </button>\n    </mat-form-field>\n    <mat-form-field>\n      <input matInput placeholder=\"Краткое наименование кафедры\" [(ngModel)]=\"currentItem.shortName\">\n    </mat-form-field>\n    <mat-form-field>\n      <input matInput placeholder=\"Фамилия И.О. заведующего\" [(ngModel)]=\"currentItem.mainFullName\">\n    </mat-form-field>\n  </div>\n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-button [mat-dialog-close]=\"false\">Отмена</button>\n  <button mat-button [mat-dialog-close]=\"currentItem\" (click)=\"getPositiveResult()\">Сохранить</button>\n</mat-dialog-actions>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/departments/department-edit.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DepartmentEditComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__department_service__ = __webpack_require__("../../../../../src/app/departments/department.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var DepartmentEditComponent = (function () {
+    function DepartmentEditComponent(data, departmentService) {
+        this.data = data;
+        this.departmentService = departmentService;
+    }
+    DepartmentEditComponent.prototype.ngOnInit = function () {
+        this.currentItem = this.data;
+    };
+    DepartmentEditComponent.prototype.getPositiveResult = function () {
+        var _this = this;
+        if (this.currentItem.id == undefined) {
+            this.departmentService.createDepartment(this.currentItem).subscribe(function (res) {
+                _this.currentItem.id = res;
+            });
+        }
+        else {
+            this.departmentService.editDepartment(this.currentItem).subscribe();
+        }
+    };
+    DepartmentEditComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'app-department-edit',
+            template: __webpack_require__("../../../../../src/app/departments/department-edit.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/departments/department-edit.component.css")]
+        }),
+        __param(0, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [Object, __WEBPACK_IMPORTED_MODULE_2__department_service__["a" /* DepartmentService */]])
+    ], DepartmentEditComponent);
+    return DepartmentEditComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/departments/department.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -351,7 +438,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/departments/departments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"button-row\">\n  <button mat-icon-button  (click)=\"addNewFaculty()\" color=\"primary\">\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">add_circle</mat-icon>\n  </button>\n</div>\n\n<div class=\"example-header\">\n  <mat-form-field>\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Фильтр\">\n  </mat-form-field>\n</div>\n\n<div class=\"example-container mat-elevation-z8\">\n  <mat-table [dataSource]=\"dataSource\" matSort>\n    <ng-container matColumnDef=\"shortName\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Краткое наименование</mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.shortName}}</mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"fullName\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Полное наименование</mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.fullName}}</mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"mainFullName\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Фамилия И.О. заведующего</mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.mainFullName}}</mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"actions\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n      <mat-cell *matCellDef=\"let row\">\n        <button mat-button color=\"primary\" (click)=\"editFaculty(row.id)\">Редактировать</button>\n        <button mat-button color=\"warn\" (click)=\"removeFaculty(row.id)\">Удалить</button>\n      </mat-cell>\n    </ng-container>\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </mat-row>\n  </mat-table>\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 20, 25]\"></mat-paginator>\n</div>\n"
+module.exports = "\n<div class=\"button-row\">\n  <button mat-icon-button  (click)=\"addNewDepartment()\" color=\"primary\">\n    <mat-icon aria-label=\"Example icon-button with a heart icon\">add_circle</mat-icon>\n  </button>\n</div>\n\n<div class=\"example-header\">\n  <mat-form-field>\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Фильтр\">\n  </mat-form-field>\n</div>\n\n<div class=\"example-container mat-elevation-z8\">\n  <mat-table [dataSource]=\"dataSource\" matSort>\n    <ng-container matColumnDef=\"shortName\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Краткое наименование</mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.shortName}}</mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"fullName\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Полное наименование</mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.fullName}}</mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"mainFullName\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Фамилия И.О. заведующего</mat-header-cell>\n      <mat-cell *matCellDef=\"let row\"> {{row.mainFullName}}</mat-cell>\n    </ng-container>\n    <ng-container matColumnDef=\"actions\">\n      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n      <mat-cell *matCellDef=\"let row\">\n        <button mat-button color=\"primary\" (click)=\"editDepartment(row.id)\">Редактировать</button>\n        <button mat-button color=\"warn\" (click)=\"removeDepartment(row.id)\">Удалить</button>\n      </mat-cell>\n    </ng-container>\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n    </mat-row>\n  </mat-table>\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 20, 25]\"></mat-paginator>\n</div>\n"
 
 /***/ }),
 
@@ -363,7 +450,9 @@ module.exports = "\n<div class=\"button-row\">\n  <button mat-icon-button  (clic
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__department_service__ = __webpack_require__("../../../../../src/app/departments/department.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__department_edit_component__ = __webpack_require__("../../../../../src/app/departments/department-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_departmentModel__ = __webpack_require__("../../../../../src/app/models/departmentModel.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -377,7 +466,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-//import { DepartmentEditComponent } from "./Department-edit.component";
+
+
 
 var DepartmentsComponent = (function () {
     function DepartmentsComponent(departmentService, dialog) {
@@ -405,42 +495,46 @@ var DepartmentsComponent = (function () {
         filterValue = filterValue.toLowerCase();
         this.dataSource.filter = filterValue;
     };
-    //public addNewDepartment() {
-    //  let dialogRef = this.dialog.open(DepartmentEditComponent, {
-    //    data: new DepartmentModel(),
-    //    width: '800px'
-    //  });
-    //  dialogRef.afterClosed().subscribe(result => {
-    //    if (typeof (result) != typeof (Boolean)) {
-    //      this.items.push(result);
-    //      this.dataSource.data = this.items;
-    //    }
-    //  });
-    //}
-    //public editDepartment(DepartmentId: string) {
-    //  let selectedDepartment = {};
-    //  for (let item of this.items) {
-    //    if (item.id === DepartmentId) {
-    //      selectedDepartment = item;
-    //    }
-    //  }
-    //  let dialogRef = this.dialog.open(DepartmentEditComponent, {
-    //    data: Object.assign({}, selectedDepartment),
-    //    width: '800px'
-    //  });
-    //  dialogRef.afterClosed().subscribe(result => {
-    //    if (typeof (result) != typeof (Boolean)) {
-    //      for (let item of this.items) {
-    //        if (item.id === result.id) {
-    //          item.deanFullName = result.deanFullName;
-    //          item.fullName = result.fullName;
-    //          item.shortName = result.shortName;
-    //        }
-    //      }
-    //      this.dataSource.data = this.items;
-    //    }
-    //  });
-    //}
+    DepartmentsComponent.prototype.addNewDepartment = function () {
+        var _this = this;
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__department_edit_component__["a" /* DepartmentEditComponent */], {
+            data: new __WEBPACK_IMPORTED_MODULE_5__models_departmentModel__["a" /* DepartmentModel */](),
+            width: '800px'
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (typeof (result) != typeof (Boolean)) {
+                _this.items.push(result);
+                _this.dataSource.data = _this.items;
+            }
+        });
+    };
+    DepartmentsComponent.prototype.editDepartment = function (departmentId) {
+        var _this = this;
+        var selectedDepartment = {};
+        for (var _i = 0, _a = this.items; _i < _a.length; _i++) {
+            var item = _a[_i];
+            if (item.id === departmentId) {
+                selectedDepartment = item;
+            }
+        }
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__department_edit_component__["a" /* DepartmentEditComponent */], {
+            data: Object.assign({}, selectedDepartment),
+            width: '800px'
+        });
+        dialogRef.afterClosed().subscribe(function (result) {
+            if (typeof (result) != typeof (Boolean)) {
+                for (var _i = 0, _a = _this.items; _i < _a.length; _i++) {
+                    var item = _a[_i];
+                    if (item.id === result.id) {
+                        item.mainFullName = result.mainFullName;
+                        item.fullName = result.fullName;
+                        item.shortName = result.shortName;
+                    }
+                }
+                _this.dataSource.data = _this.items;
+            }
+        });
+    };
     DepartmentsComponent.prototype.removeDepartment = function (departmentId) {
         var _this = this;
         var selectedDepartment;
@@ -450,7 +544,7 @@ var DepartmentsComponent = (function () {
                 selectedDepartment = item;
             }
         }
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */], {
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */], {
             data: "Вы действительно хотите удалить эту кафедру: " + selectedDepartment.shortName,
             width: '800px'
         });
@@ -509,7 +603,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/faculties/faculties.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"button-row\">\r\n  <button mat-icon-button  (click)=\"addNewDepartment()\" color=\"primary\">\r\n    <mat-icon >add_circle</mat-icon>\r\n  </button>\r\n</div>\r\n\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Фильтр\">\r\n  </mat-form-field>\r\n</div>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"dataSource\" matSort>\r\n    <ng-container matColumnDef=\"shortName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Краткое наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.shortName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"fullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Полное наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.fullName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"deanFullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Фамилия И.О. декана</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.deanFullName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"actions\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n        <button mat-button color=\"primary\" (click)=\"editDepartment(row.id)\">Редактировать</button>\r\n        <button mat-button color=\"warn\" (click)=\"removeDepartment(row.id)\">Удалить</button>\r\n      </mat-cell>\r\n    </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </mat-row>\r\n  </mat-table>\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 20, 25]\"></mat-paginator>\r\n</div>\r\n"
+module.exports = "\r\n<div class=\"button-row\">\r\n  <button mat-icon-button  (click)=\"addNewFaculty()\" color=\"primary\">\r\n    <mat-icon >add_circle</mat-icon>\r\n  </button>\r\n</div>\r\n\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Фильтр\">\r\n  </mat-form-field>\r\n</div>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"dataSource\" matSort>\r\n    <ng-container matColumnDef=\"shortName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Краткое наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.shortName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"fullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Полное наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.fullName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"deanFullName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Фамилия И.О. декана</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.deanFullName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"actions\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n        <button mat-button color=\"primary\" (click)=\"editFaculty(row.id)\">Редактировать</button>\r\n        <button mat-button color=\"warn\" (click)=\"removeFaculty(row.id)\">Удалить</button>\r\n      </mat-cell>\r\n    </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </mat-row>\r\n  </mat-table>\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 20, 25]\"></mat-paginator>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -779,6 +873,21 @@ var FacultyService = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], FacultyService);
     return FacultyService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/models/departmentModel.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DepartmentModel; });
+var DepartmentModel = (function () {
+    function DepartmentModel() {
+    }
+    return DepartmentModel;
 }());
 
 
