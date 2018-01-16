@@ -17,6 +17,50 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 
 /***/ }),
 
+/***/ "../../../../../src/app/MatPaginatorIntlRus.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MatPaginatorIntlRus; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var MatPaginatorIntlRus = (function (_super) {
+    __extends(MatPaginatorIntlRus, _super);
+    function MatPaginatorIntlRus() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.itemsPerPageLabel = 'Элементов на страницу';
+        _this.nextPageLabel = 'Следущая страница';
+        _this.previousPageLabel = 'предыдущая страница';
+        _this.getRangeLabel = function (page, pageSize, length) {
+            if (length === 0 || pageSize === 0) {
+                return '0 из ' + length;
+            }
+            length = Math.max(length, 0);
+            var startIndex = page * pageSize;
+            var endIndex = startIndex < length ?
+                Math.min(startIndex + pageSize, length) :
+                startIndex + pageSize;
+            return startIndex + 1 + ' - ' + endIndex + ' из ' + length;
+        };
+        return _this;
+    }
+    return MatPaginatorIntlRus;
+}(__WEBPACK_IMPORTED_MODULE_0__angular_material__["e" /* MatPaginatorIntl */]));
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/app.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -38,7 +82,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"Факультеты\">\r\n    <app-faculties></app-faculties>\r\n  </mat-tab>\r\n  <mat-tab label=\"Группы\"> </mat-tab>\r\n  <mat-tab label=\"Кафедры\">\r\n    <app-departments></app-departments>\r\n  </mat-tab>\r\n  <mat-tab label=\"Преподаватели\"> </mat-tab>\r\n  <mat-tab label=\"Преподаватели по группам\"> </mat-tab>\r\n  <mat-tab label=\"Общие вопросы\"> </mat-tab>\r\n  <mat-tab label=\"Вопросы о преподавателе\"> </mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"Факультеты\">\r\n    <app-faculties></app-faculties>\r\n  </mat-tab>\r\n  <mat-tab label=\"Группы\">\r\n    <app-groups></app-groups>\r\n  </mat-tab>\r\n  <mat-tab label=\"Кафедры\">\r\n    <app-departments></app-departments>\r\n  </mat-tab>\r\n  <mat-tab label=\"Преподаватели\"> </mat-tab>\r\n  <mat-tab label=\"Преподаватели по группам\"> </mat-tab>\r\n  <mat-tab label=\"Общие вопросы\"> </mat-tab>\r\n  <mat-tab label=\"Вопросы о преподавателе\"> </mat-tab>\r\n</mat-tab-group>\r\n"
 
 /***/ }),
 
@@ -108,12 +152,16 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/confirm-dialog/confirm-dialog.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__departments_departments_component__ = __webpack_require__("../../../../../src/app/departments/departments.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__departments_department_edit_component__ = __webpack_require__("../../../../../src/app/departments/department-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__groups_groups_component__ = __webpack_require__("../../../../../src/app/groups/groups.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__MatPaginatorIntlRus__ = __webpack_require__("../../../../../src/app/MatPaginatorIntlRus.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -149,7 +197,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_20__faculties_faculty_edit_component__["a" /* FacultyEditComponent */],
                 __WEBPACK_IMPORTED_MODULE_21__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */],
                 __WEBPACK_IMPORTED_MODULE_22__departments_departments_component__["a" /* DepartmentsComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__departments_department_edit_component__["a" /* DepartmentEditComponent */]
+                __WEBPACK_IMPORTED_MODULE_23__departments_department_edit_component__["a" /* DepartmentEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__groups_groups_component__["a" /* GroupsComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -163,7 +212,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_8__angular_material_button__["a" /* MatButtonModule */],
                 __WEBPACK_IMPORTED_MODULE_9__angular_material_table__["b" /* MatTableModule */],
                 __WEBPACK_IMPORTED_MODULE_11__angular_material_form_field__["c" /* MatFormFieldModule */],
-                __WEBPACK_IMPORTED_MODULE_10__angular_material_paginator__["b" /* MatPaginatorModule */],
+                __WEBPACK_IMPORTED_MODULE_10__angular_material_paginator__["c" /* MatPaginatorModule */],
                 __WEBPACK_IMPORTED_MODULE_12__angular_material_sort__["b" /* MatSortModule */],
                 __WEBPACK_IMPORTED_MODULE_13__angular_material__["c" /* MatInputModule */],
                 __WEBPACK_IMPORTED_MODULE_14__angular_material_dialog__["c" /* MatDialogModule */]
@@ -173,7 +222,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_23__departments_department_edit_component__["a" /* DepartmentEditComponent */],
                 __WEBPACK_IMPORTED_MODULE_21__confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_15__app_service__["a" /* AppService */], __WEBPACK_IMPORTED_MODULE_16__faculties_faculty_service__["a" /* FacultyService */], __WEBPACK_IMPORTED_MODULE_17__departments_department_service__["a" /* DepartmentService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_15__app_service__["a" /* AppService */], __WEBPACK_IMPORTED_MODULE_16__faculties_faculty_service__["a" /* FacultyService */], __WEBPACK_IMPORTED_MODULE_17__departments_department_service__["a" /* DepartmentService */], { provide: __WEBPACK_IMPORTED_MODULE_13__angular_material__["e" /* MatPaginatorIntl */], useClass: __WEBPACK_IMPORTED_MODULE_25__MatPaginatorIntlRus__["a" /* MatPaginatorIntlRus */] }],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_18__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -482,7 +531,7 @@ var DepartmentsComponent = (function () {
         var _this = this;
         this.departmentService.getDepartments().subscribe(function (res) {
             _this.items = res;
-            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatTableDataSource */](_this.items);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatTableDataSource */](_this.items);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
@@ -564,8 +613,8 @@ var DepartmentsComponent = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatPaginator */])
     ], DepartmentsComponent.prototype, "paginator", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatSort */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatSort */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatSort */])
     ], DepartmentsComponent.prototype, "sort", void 0);
     DepartmentsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
@@ -647,7 +696,7 @@ var FacultiesComponent = (function () {
         var _this = this;
         this.facultyService.getFaculties().subscribe(function (res) {
             _this.items = res;
-            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatTableDataSource */](_this.items);
+            _this.dataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatTableDataSource */](_this.items);
             _this.dataSource.paginator = _this.paginator;
             _this.dataSource.sort = _this.sort;
         });
@@ -729,8 +778,8 @@ var FacultiesComponent = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatPaginator */])
     ], FacultiesComponent.prototype, "paginator", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatSort */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatSort */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatSort */])
     ], FacultiesComponent.prototype, "sort", void 0);
     FacultiesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
@@ -873,6 +922,68 @@ var FacultyService = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], FacultyService);
     return FacultyService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/groups/groups.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".example-container {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  min-width: 300px;\r\n}\r\n\r\n.example-header {\r\n  min-height: 64px;\r\n  padding: 8px 24px 0;\r\n}\r\n\r\n.mat-form-field {\r\n  font-size: 14px;\r\n  width: 100%;\r\n}\r\n\r\n.mat-table {\r\n  overflow: auto;\r\n  max-height: 700px;\r\n}\r\n\r\n.mat-column-actions {\r\n  -webkit-box-flex: 0;\r\n      -ms-flex: 0 0 230px;\r\n          flex: 0 0 230px;\r\n}\r\n\r\n.mat-column-course {\r\n  -webkit-box-flex: 0;\r\n      -ms-flex: 0 0 100px;\r\n          flex: 0 0 100px;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/groups/groups.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<div class=\"button-row\">\r\n  <button mat-icon-button  (click)=\"addNewGroup()\" color=\"primary\">\r\n    <mat-icon >add_circle</mat-icon>\r\n  </button>\r\n</div>\r\n\r\n<div class=\"example-header\">\r\n  <mat-form-field>\r\n    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Фильтр\">\r\n  </mat-form-field>\r\n</div>\r\n\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table [dataSource]=\"dataSource\" matSort>\r\n    <ng-container matColumnDef=\"name\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Наименование</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.name}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"course\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Курс</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.course}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"teachFormName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Форма обучения</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.teachFormName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"facultyName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Факультет</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.facultyName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"stateName\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header> Статус</mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\"> {{row.stateName}}</mat-cell>\r\n    </ng-container>\r\n    <ng-container matColumnDef=\"actions\">\r\n      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\r\n      <mat-cell *matCellDef=\"let row\">\r\n        <button mat-button color=\"primary\" (click)=\"editGroup(row.id)\">Редактировать</button>\r\n        <button mat-button color=\"warn\" (click)=\"removeGroup(row.id)\">Удалить</button>\r\n      </mat-cell>\r\n    </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\r\n    </mat-row>\r\n  </mat-table>\r\n  <mat-paginator [pageSizeOptions]=\"[5, 10, 20, 25]\"></mat-paginator>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/groups/groups.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GroupsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var GroupsComponent = (function () {
+    function GroupsComponent() {
+        this.displayedColumns = ['name', 'course', 'teachFormName', 'facultyName', 'stateName', 'actions'];
+    }
+    GroupsComponent.prototype.ngOnInit = function () {
+    };
+    GroupsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'app-groups',
+            template: __webpack_require__("../../../../../src/app/groups/groups.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/groups/groups.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], GroupsComponent);
+    return GroupsComponent;
 }());
 
 

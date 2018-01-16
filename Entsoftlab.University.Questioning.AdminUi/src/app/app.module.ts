@@ -11,7 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSortModule } from '@angular/material/sort';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatPaginatorIntl } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppService } from './app.service'
@@ -23,7 +23,8 @@ import { FacultyEditComponent } from './faculties/faculty-edit.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { DepartmentEditComponent } from './departments/department-edit.component';
-
+import { GroupsComponent } from './groups/groups.component';
+import { MatPaginatorIntlRus } from "./MatPaginatorIntlRus";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DepartmentEditComponent } from './departments/department-edit.component
     FacultyEditComponent,
     ConfirmDialogComponent,
     DepartmentsComponent,
-    DepartmentEditComponent
+    DepartmentEditComponent,
+    GroupsComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,7 @@ import { DepartmentEditComponent } from './departments/department-edit.component
     DepartmentEditComponent,
     ConfirmDialogComponent
   ],
-  providers: [AppService, FacultyService, DepartmentService],
+  providers: [AppService, FacultyService, DepartmentService, { provide: MatPaginatorIntl, useClass: MatPaginatorIntlRus }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
