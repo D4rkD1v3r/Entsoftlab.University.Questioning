@@ -1,7 +1,7 @@
 ﻿namespace Entsoftlab.University.Questioning.Data.Models
 {
 	/// <summary>
-	/// 
+	/// Форма обучения.
 	/// </summary>
 	public enum TeachType : short
 	{

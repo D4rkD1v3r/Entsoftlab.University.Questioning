@@ -36,7 +36,7 @@ namespace Entsoftlab.University.Questioning.AdminUi.Controllers {
       return item.Id;
     }
 
-    [HttpPut()]
+    [HttpPut]
     public void Put([FromBody] Department model) {
       var item = Mapper.Map<Data.Models.Department>(model);
       var ent = _context.Departments.Attach(item);
